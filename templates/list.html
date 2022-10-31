@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Linst</title>
+</head>
+<body>
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobenome</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Emial</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for cada in cadastrado %}
+            <tr>
+                <th scope="row"></th>
+                <td>{{ cada.nome }}</td>
+                <td>{{ cada.sobrenome }}</td>
+                <td>{{ cada.telefone }}</td>
+                <td>{{ cada.email }}</td>
+                <td><button type="button" class="btn btn-warning" onclick="location.href = '{% url 'update' cada.pk %}'" >Editar</button></td>
+                <td><button type="button" class="btn btn-danger" onclick="location.href = '{% url 'delete' cada.pk %}'" >Excluir</button></td>
+            </tr>
+            {%endfor%}
+
+        </tbody>
+        
+      </table>
+      <button type="button" class="btn btn-secondary" onclick="location.href = '{% url 'index' %}'" ><</button>
+
+</body>
+</html>
